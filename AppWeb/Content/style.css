@@ -1,0 +1,196 @@
+﻿@font-face{
+    font-family:myFont;
+    src:url('font/GE_SS_Two_Bold.otf')
+}
+
+@font-face{
+    font-family:myFont2;
+    src:url('font/DroidKufi-Regular.ttf')
+}
+
+body{
+    padding-top:100px;
+    font-family:myFont2;
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.navbar-default {
+    background-color:#000000;
+    border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #e7e7e7;
+    font-family:myFont;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+}
+
+.nav > li {
+    position: relative;
+    display: block;
+    /*height: 75px;*/
+    padding-top: 10px;
+}
+
+
+.logo-size
+{
+    width:120px;
+    height:62px;
+    margin-top:-7px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: right;
+}
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        /*
+	Label the data
+	*/
+        td:nth-of-type(1):before {
+
+        }
+
+        td:nth-of-type(2):before {
+
+        }
+
+        td:nth-of-type(3):before {
+
+        }
+
+        td:nth-of-type(4):before {
+        }
+
+        td:nth-of-type(5):before {
+        }
+
+        td:nth-of-type(6):before {
+           
+        }
+
+        td:nth-of-type(7):before {
+        }
+
+        td:nth-of-type(8):before {
+        }
+
+        td:nth-of-type(9):before {
+        }
+
+        td:nth-of-type(10):before {
+        }
+}
+#searchName {
+    width: 130px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-repeat:no-repeat;
+    background-position:10px 10px;
+    padding:12px 20px 12px 12px;
+    transition:width 0.4s ease-in-out;
+}
+
+#searchName:focus{
+    width:100%;
+}
+
+.img-size{
+    font-size:90px;
+}
+
+.navbar-user{
+    padding:10px;
+    padding-bottom:0px;
+    width:350px;
+}
+
+@media (min-width: 992px){
+.col-md-3 {
+    width: 23%;
+}
+}
+
+
+    .DowloudAppMobile{
+        display:none;
+    }
+    @media only screen and (max-width: 425px) {
+        .DowloudAppMobile {
+        background-color: black;
+        display:block;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    body {
+    }
+}

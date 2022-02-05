@@ -1,0 +1,87 @@
+﻿@model AppWeb.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "تحديث";
+}
+
+<h2>تحديث</h2>
+@using AppWeb.Models;
+@using Microsoft.AspNet.Identity;
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.PasswordHash)
+    @Html.HiddenFor(model => model.SecurityStamp)
+    @Html.HiddenFor(model => model.UserName)
+    @Html.HiddenFor(model => model.Email)
+    @Html.HiddenFor(model => model.AccessFailedCount)
+    @Html.HiddenFor(model => model.TwoFactorEnabled)
+    @Html.HiddenFor(model => model.EmailConfirmed)
+    @Html.HiddenFor(model => model.PhoneNumberConfirmed)
+    @Html.HiddenFor(model => model.AccessFailedCount)
+    @Html.HiddenFor(model => model.LockoutEnabled)
+    @Html.HiddenFor(model => model.LockoutEndDateUtc)
+    @Html.HiddenFor(model => model.Roles)
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">الاسم بالكامل </label>
+            <div class="col-md-10">
+                <input type="text" id="FullName" name="FullName" value="@User.Identity.FullName()" class="form-control" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                رقم جوال
+            </label>
+            <div class="col-md-10">
+                <input type="text" id="PhoneNumber" name="PhoneNumber" value="@User.Identity.NumberMobie()" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">
+                مدينة
+            </label>
+            <div class="col-md-10">
+                <input type="text" id="City" name="City" value="@User.Identity.City()" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">حي</label>
+            <div class="col-md-10">
+                <input type="text" id="District" name="District" value="@User.Identity.District()" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">شارع</label>
+            <div class="col-md-10">
+                <input type="text" id="Street" name="Street" value="@User.Identity.Street()" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="حفظ" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("العودة ", "Index", "Manage")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

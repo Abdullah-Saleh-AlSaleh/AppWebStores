@@ -1,0 +1,174 @@
+﻿@model IEnumerable<AppWeb.Models.AddStore>
+@using AppWeb.Models
+@{
+    ViewBag.Title = "طلبي";
+}
+
+<h2>طلبي</h2>
+
+
+<table class="table">
+    <tr>
+
+        <th>
+            الصورة
+        </th>
+        <th>
+            رقم المنتج
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetAddDateTime)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.TextToHome)
+        </th>
+
+
+    </tr>
+
+@foreach (var item in Model)
+{
+<tr>
+    <td>
+        @{
+            ApplicationDbContext db = new ApplicationDbContext();
+            var data = from image in db.Stores
+                       where image.Id == item.StoreId
+                       select new { image1 = image.image1, image2 = image.image2 };
+            foreach (var it in data)
+            {
+                <img src="~/Upload/@it.image1" height="25" width="25" />
+
+            }
+        }
+    </td>
+    <td>
+        @{
+            try
+            {
+                var id = item.StoreId;
+                var StoreId = EncryptAndDecrypt.DecryptString(id.Replace("-", "/").Replace("-", " ").Replace("-", "+"));
+                @StoreId.Replace("T","").Replace("14", "PN");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProducetName)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+        @{
+            var Price = from price in db.Stores
+                        where price.Id == item.StoreId
+                        select price;
+            if (item.Price==null)
+            {
+                foreach (var it in Price)
+                {
+                    var Prices = item.Quantity * Convert.ToInt32(it.Price);
+                    @Prices
+                }
+            }
+
+
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quantity)
+    </td>
+
+    <td>
+
+        @{
+            object dt = DateTimeAgo.TimeAgo(item.ProducetAddDateTime);
+            ViewBag.dateTime = dt;
+        }
+        @ViewBag.dateTime
+    </td>
+
+
+    @{
+        DateTime old;
+        old = item.ProducetAddDateTime;
+        int date1 = Convert.ToInt32(old.AddDays(5).ToString("yyyyMMdd"));
+        int date2 = Convert.ToInt32(old.AddDays(25).ToString("yyyyMMdd"));
+        int date = Convert.ToInt32(DateTime.Now.AddDays(0).ToString("yyyyMMdd"));
+
+        if (item.TextToHome != null)
+        {
+            if (date1 >= date)
+            {
+
+
+        <td>
+                <p>
+                    تم الشحن
+                    رقم الشحن  @item.TextToHome
+                </p>
+        
+            <a href="https://smsaexpress.com/ar/trackingdetails?tracknumbers=@item.TextToHome" class="btn btn btn-danger">
+                التتبع الشحن
+            </a>
+        </td>
+
+            }
+            else if (date2 >= date)
+            {
+
+                <td>
+                    تم تسيلم
+                </td>
+
+
+
+            }
+      
+            else
+            {
+                <td>
+                    @Html.ActionLink(" تعليق", "Comments", new { Id = item.Id }, new { @class = "" })
+
+                </td>
+            }
+        }
+        else
+        {
+            <td>
+                تحدت مرجع
+            </td>
+        }
+
+
+
+    }
+
+
+
+
+
+
+</tr>
+}
+
+</table>

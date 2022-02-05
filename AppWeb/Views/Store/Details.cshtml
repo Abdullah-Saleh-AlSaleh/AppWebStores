@@ -1,0 +1,58 @@
+﻿@model AppWeb.Models.Store
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Store</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducetDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducetDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProducetAddDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProducetAddDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

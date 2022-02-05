@@ -1,0 +1,112 @@
+﻿@model IEnumerable<AppWeb.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "جميع المستخدمين";
+}
+
+<h2>
+    جميع المستخدمين
+</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            بريد إلكتروني
+        </th>
+        <th>
+            اسم االمستخدم
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+
+        <th>
+            رقم الهاتف
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (item.UserName != "Admin")
+            {
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <a class="btn btn-danger"  href="@item.Location" title="موقع">
+                        موقع
+                    </a>
+
+                    |
+                    <a class="btn btn-danger" href="~/AddStore/Comments/@item.Id">
+                        تعليقات
+                    </a>
+                    @using (Html.BeginForm("Delete", "Account", new { Id = item.Id }, FormMethod.Post, new { @id = "Deletes" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <br />
+                        <button id="Delete" type="button" class="btn  btn-danger">حذف</button>
+
+                    }
+
+                </td>
+
+            }
+        </tr>
+    }
+
+</table>
+<div id="Del">
+    <p>هل تريد حذف</p>
+</div>
+
+    <script type="text/javascript">
+
+        $("#Del").dialog({
+            title: "حذف",
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            },
+            buttons: {
+                "حذف": function () {
+                    document.getElementById("Deletes").submit();
+                },
+                "إلغاء": function () {
+                    $(this).dialog("close")
+                }
+            }
+
+        });
+
+        $("#Delete").on("click", function () {
+            $("#Del").dialog("open");
+        });
+    </script>
+    

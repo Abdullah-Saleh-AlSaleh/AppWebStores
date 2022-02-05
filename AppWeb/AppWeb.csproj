@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{125F3030-CBDC-4882-B57A-2F7DF5F23033}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppWeb</RootNamespace>
+    <AssemblyName>AppWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44317</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Document, Version=33.0.0.1222, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL" />
+    <Reference Include="Karasoft.Mvc, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Karasoft.Mvc.1.2.0.0\lib\net452\Karasoft.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.1.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.1.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.1.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.1.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.1.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.1.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddStoresController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105091307085_update.cs" />
+    <Compile Include="Migrations\202105091307085_update.Designer.cs">
+      <DependentUpon>202105091307085_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DateTimeAgo.cs" />
+    <Compile Include="Models\EncryptAndDecrypt.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\all.js" />
+    <Content Include="Content\app.js" />
+    <Content Include="Content\auth.js" />
+    <Content Include="Content\boot.css" />
+    <Content Include="Content\boot.js" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cropper.min.css" />
+    <Content Include="Content\cropper.min.js" />
+    <Content Include="Content\css-demo-page.css" />
+    <Content Include="Content\css.css" />
+    <Content Include="Content\dark-onsen-css-components.css" />
+    <Content Include="Content\dark-onsen-css-components.min.css" />
+    <Content Include="Content\directives.js" />
+    <Content Include="Content\filters.js" />
+    <Content Include="Content\font.css" />
+    <Content Include="Content\font\font-awesome.css" />
+    <Content Include="Content\font\font-awesome.min.css" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="Content\font\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\font\index.html" />
+    <Content Include="Content\font_awesome\css\all.css" />
+    <Content Include="Content\font_awesome\css\all.min.css" />
+    <Content Include="Content\font_awesome\css\brands.css" />
+    <Content Include="Content\font_awesome\css\brands.min.css" />
+    <Content Include="Content\font_awesome\css\fontawesome.css" />
+    <Content Include="Content\font_awesome\css\fontawesome.min.css" />
+    <Content Include="Content\font_awesome\css\regular.css" />
+    <Content Include="Content\font_awesome\css\regular.min.css" />
+    <Content Include="Content\font_awesome\css\solid.css" />
+    <Content Include="Content\font_awesome\css\solid.min.css" />
+    <Content Include="Content\font_awesome\css\svg-with-js.css" />
+    <Content Include="Content\font_awesome\css\svg-with-js.min.css" />
+    <Content Include="Content\font_awesome\css\v4-shims.css" />
+    <Content Include="Content\font_awesome\css\v4-shims.min.css" />
+    <Content Include="Content\font_awesome\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\font_awesome\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\font_awesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\grt-responsive-menu.css" />
+    <Content Include="Content\icons.css" />
+    <Content Include="Content\ionicons.min.css" />
+    <Content Include="Content\ionicons\css\ionicons-core.css" />
+    <Content Include="Content\ionicons\css\ionicons-core.min.css" />
+    <Content Include="Content\ionicons\css\ionicons.css" />
+    <Content Include="Content\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\jquery.js" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\material-design-iconic-font\css\material-design-iconic-font.css" />
+    <Content Include="Content\material-design-iconic-font\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\material-design-iconic-font\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\old-onsen-css-components.css" />
+    <Content Include="Content\old-onsen-css-components.min.css" />
+    <Content Include="Content\onsen-css-components.css" />
+    <Content Include="Content\onsen-css-components.min.css" />
+    <Content Include="Content\onsenui-core.css" />
+    <Content Include="Content\onsenui-core.min.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\gulpfile.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\misc\screenshot-01.png" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\misc\screenshot-02.png" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\app.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\app-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\category-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\component-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\components-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\notfound-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\pattern-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\patterns-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\platform-select.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\preview-component.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\components\theme-select.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\select-icon.svg" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\style.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\util.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\action-sheet.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\alert-dialog.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\button-bar.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\button.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\card.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\checkbox.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\combination.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\dialog.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\fab.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\global.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\index.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\list.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\modal.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\notification.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\page.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\popover.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\progress-bar.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\progress-circular.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\radio-button.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\range.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\search-input.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\segment.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\select.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\switch.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\tabbar.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\text-input.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\textarea.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\toast.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\toolbar-button.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\toolbar.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\components\util.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\dark-onsen-css-components.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\dark-theme.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\img\android-search-input-icon.svg" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\img\ios-search-input-icon.svg" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\img\select-arrow.svg" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\action-sheet.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\combination.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\fab.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\global.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\index.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\page.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\tabbar.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\toast.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\iphonex-support\toolbar.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\license.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\old-onsen-css-components.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\old-theme.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\onsen-css-components.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\src\theme.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\stylelint.config.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\dark-onsen-css-components.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\dark-onsen-css-components.min.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\base\base-button.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\base\base-checkbox.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\base\base-dialog.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\base\base-element.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\base\base-input.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-action-sheet-button.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-action-sheet\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-action-sheet\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-alert-dialog-button.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-alert-dialog\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-alert-dialog\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-back-button.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-bottom-toolbar.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-button.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-card.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-carousel-item.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-carousel.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-checkbox.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-col.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-dialog\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-dialog\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-fab.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-gesture-detector.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-icon.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-if.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-input.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-lazy-repeat.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-list-header.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-list-item\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-list-item\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-list-title.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-list.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-modal\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-modal\fade-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-modal\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-modal\lift-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\ios-fade-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\ios-lift-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\ios-slide-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\ios-swipe-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\md-fade-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\md-lift-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\md-slide-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-navigator\none-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-page.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-popover\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-popover\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-progress-bar.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-progress-circular.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-pull-hook.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-radio.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-range.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-ripple\animator-css.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-ripple\animator-js.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-ripple\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-row.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-search-input.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-segment.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-select.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-speed-dial-item.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-speed-dial.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter-content.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter-mask.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter-side.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter\overlay-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter\push-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-splitter\reveal-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-switch.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-tab.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-tabbar\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-template.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toast\animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toast\ascend-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toast\fade-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toast\fall-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toast\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toast\lift-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toolbar-button.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\elements\ons-toolbar.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\action-sheet.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\animation-options-parser.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\animit.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\autostyle.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\base-animator.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\content-ready.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\doorlock.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\elements.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\gesture-detector.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\animator-factory.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\device-back-button-dispatcher.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\internal.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\lazy-repeat.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\modifier-util.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\swipe-reveal.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\swiper.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\internal\toast-queue.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\iphonex-patch.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\microevent.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\modifier.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\notification.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\orientation.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\page-attribute-expression.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\page-loader.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\platform.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\software-keyboard.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\styler.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\ons\util.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\polyfills\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\polyfills\MutationObserver%400.7.22\MutationObserver.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\polyfills\polyfill-switches.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\polyfills\setImmediate%401.0.2+mod\setImmediate.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\vendor\index.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\esm\vendor\viewport.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\js\angular-onsenui.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\js\angular-onsenui.min.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\js\onsenui.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\js\onsenui.min.js" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\old-onsen-css-components.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\old-onsen-css-components.min.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\onsen-css-components.css" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\onsen-css-components.min.css" />
+    <Content Include="Content\onsenui-fonts.css" />
+    <Content Include="Content\onsenui.css" />
+    <Content Include="Content\onsenui.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\plugins.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\trash.svg" />
+    <Content Include="Content\vendor.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-onsenui.js" />
+    <Content Include="Scripts\angular-onsenui.min.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\ckeditor\adapters\jquery.js" />
+    <Content Include="Scripts\ckeditor\build-config.js" />
+    <Content Include="Scripts\ckeditor\ckeditor.js" />
+    <Content Include="Scripts\ckeditor\config.js" />
+    <Content Include="Scripts\ckeditor\contents.css" />
+    <Content Include="Scripts\ckeditor\lang\af.js" />
+    <Content Include="Scripts\ckeditor\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\lang\az.js" />
+    <Content Include="Scripts\ckeditor\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\lang\bn.js" />
+    <Content Include="Scripts\ckeditor\lang\bs.js" />
+    <Content Include="Scripts\ckeditor\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\lang\da.js" />
+    <Content Include="Scripts\ckeditor\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\lang\de.js" />
+    <Content Include="Scripts\ckeditor\lang\el.js" />
+    <Content Include="Scripts\ckeditor\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\lang\en-ca.js" />
+    <Content Include="Scripts\ckeditor\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\lang\en.js" />
+    <Content Include="Scripts\ckeditor\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\lang\es.js" />
+    <Content Include="Scripts\ckeditor\lang\et.js" />
+    <Content Include="Scripts\ckeditor\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\lang\fo.js" />
+    <Content Include="Scripts\ckeditor\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\lang\gu.js" />
+    <Content Include="Scripts\ckeditor\lang\he.js" />
+    <Content Include="Scripts\ckeditor\lang\hi.js" />
+    <Content Include="Scripts\ckeditor\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\lang\id.js" />
+    <Content Include="Scripts\ckeditor\lang\is.js" />
+    <Content Include="Scripts\ckeditor\lang\it.js" />
+    <Content Include="Scripts\ckeditor\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\lang\ka.js" />
+    <Content Include="Scripts\ckeditor\lang\km.js" />
+    <Content Include="Scripts\ckeditor\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\lang\mk.js" />
+    <Content Include="Scripts\ckeditor\lang\mn.js" />
+    <Content Include="Scripts\ckeditor\lang\ms.js" />
+    <Content Include="Scripts\ckeditor\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\lang\no.js" />
+    <Content Include="Scripts\ckeditor\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\lang\si.js" />
+    <Content Include="Scripts\ckeditor\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\lang\th.js" />
+    <Content Include="Scripts\ckeditor\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="Scripts\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Scripts\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Scripts\ckeditor\plugins\icons.png" />
+    <Content Include="Scripts\ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Scripts\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Scripts\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Scripts\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Scripts\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Scripts\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="Scripts\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Scripts\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Scripts\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Scripts\ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <Content Include="Scripts\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Scripts\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Scripts\ckeditor\plugins\widget\images\handle.png" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css" />
+    <Content Include="Scripts\ckeditor\samples\css\samples.css" />
+    <Content Include="Scripts\ckeditor\samples\img\github-top.png" />
+    <Content Include="Scripts\ckeditor\samples\img\header-bg.png" />
+    <Content Include="Scripts\ckeditor\samples\img\header-separator.png" />
+    <Content Include="Scripts\ckeditor\samples\img\logo.png" />
+    <Content Include="Scripts\ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="Scripts\ckeditor\samples\index.html" />
+    <Content Include="Scripts\ckeditor\samples\js\sample.js" />
+    <Content Include="Scripts\ckeditor\samples\js\sf.js" />
+    <Content Include="Scripts\ckeditor\samples\old\ajax.html" />
+    <Content Include="Scripts\ckeditor\samples\old\api.html" />
+    <Content Include="Scripts\ckeditor\samples\old\appendto.html" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="Scripts\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="Scripts\ckeditor\samples\old\datafiltering.html" />
+    <Content Include="Scripts\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="Scripts\ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="Scripts\ckeditor\samples\old\divreplace.html" />
+    <Content Include="Scripts\ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\outputforflash.html" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\outputhtml.html" />
+    <Content Include="Scripts\ckeditor\samples\old\index.html" />
+    <Content Include="Scripts\ckeditor\samples\old\inlineall.html" />
+    <Content Include="Scripts\ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="Scripts\ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="Scripts\ckeditor\samples\old\jquery.html" />
+    <Content Include="Scripts\ckeditor\samples\old\magicline\magicline.html" />
+    <Content Include="Scripts\ckeditor\samples\old\readonly.html" />
+    <Content Include="Scripts\ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="Scripts\ckeditor\samples\old\replacebycode.html" />
+    <Content Include="Scripts\ckeditor\samples\old\sample.css" />
+    <Content Include="Scripts\ckeditor\samples\old\sample.js" />
+    <Content Include="Scripts\ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="Scripts\ckeditor\samples\old\tabindex.html" />
+    <Content Include="Scripts\ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="Scripts\ckeditor\samples\old\uicolor.html" />
+    <Content Include="Scripts\ckeditor\samples\old\uilanguages.html" />
+    <Content Include="Scripts\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="Scripts\ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <Content Include="Scripts\ckeditor\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\CHANGELOG.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Scripts\ckeditor\README.md" />
+    <Content Include="Scripts\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="Scripts\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="Scripts\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="Content\font\DroidKufi-Regular.ttf" />
+    <Content Include="Content\font\DroidNaskh-Bold.ttf" />
+    <Content Include="Content\font\DroidNaskh-Regular.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fontawesome-webfont.woff2" />
+    <Content Include="Content\font\FontAwesome.otf" />
+    <Content Include="Content\font\GE_SS_Two_Bold.eot" />
+    <Content Include="Content\font\GE_SS_Two_Bold.otf" />
+    <Content Include="Content\font\GE_SS_Two_Bold.woff" />
+    <Content Include="Content\font\GE_SS_Two_Light.eot" />
+    <Content Include="Content\font\GE_SS_Two_Light.otf" />
+    <Content Include="Content\font\GE_SS_Two_Light.woff" />
+    <Content Include="Content\font\GE_SS_Two_Medium.eot" />
+    <Content Include="Content\font\GE_SS_Two_Medium.otf" />
+    <Content Include="Content\font\GE_SS_Two_Medium.woff" />
+    <Content Include="Content\font\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\font\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\font\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\font\HelveticaNeueW23-Reg.ttf" />
+    <Content Include="Content\font\iconic_stroke.eot" />
+    <Content Include="Content\font\TanseekModernProArabic-Bold1.eot" />
+    <Content Include="Content\font\TanseekModernProArabic-Bold2.woff" />
+    <Content Include="Content\font\TanseekModernProArabic-Bold3.ttf" />
+    <Content Include="Content\font\TanseekModernProArabic1.eot" />
+    <Content Include="Content\font\TanseekModernProArabic2.woff" />
+    <Content Include="Content\font\TanseekModernProArabic3.ttf" />
+    <Content Include="Content\font\trado.ttf" />
+    <Content Include="Content\font_awesome\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\font_awesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\font_awesome\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\font_awesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\font_awesome\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\font_awesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\font_awesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\font_awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\font_awesome\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\font_awesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\font_awesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\font_awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="Content\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\ionicons\fonts\ionicons.woff2" />
+    <Content Include="Content\material-design-iconic-font\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\material-design-iconic-font\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\material-design-iconic-font\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\bower.json" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\CHANGELOG.md" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\package.json" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\patterns.yaml" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\previewer-src\index.html.eco" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\README.md" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\css-components-src\yarn.lock" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\LICENSE" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\package.json" />
+    <Content Include="Content\OnsenUI-dist-2.10.10\README.md" />
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.relativetime.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\onsenui.js" />
+    <Content Include="Scripts\onsenui.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Upload\images.png" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Store\Create.cshtml" />
+    <Content Include="Views\Store\Delete.cshtml" />
+    <Content Include="Views\Store\Details.cshtml" />
+    <Content Include="Views\Store\Edit.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
+    <Content Include="Views\AddStores\Create.cshtml" />
+    <Content Include="Views\AddStores\Delete.cshtml" />
+    <Content Include="Views\AddStores\Details.cshtml" />
+    <Content Include="Views\AddStores\Edit.cshtml" />
+    <Content Include="Views\AddStores\Index.cshtml" />
+    <Content Include="Views\AddStores\MyOrder.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\AllUser.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\AddStores\Comments.cshtml" />
+    <Content Include="Views\Store\MyOrderAddUser.cshtml" />
+    <Content Include="Views\Store\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\OnsenUI-dist-2.10.10\css\" />
+    <Folder Include="Upload\UserImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\OnsenUI-dist-2.10.10\js\onsenui.d.ts" />
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\onsenui.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105091307085_update.resx">
+      <DependentUpon>202105091307085_update.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61425</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44317/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

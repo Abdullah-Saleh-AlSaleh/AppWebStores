@@ -1,0 +1,195 @@
+﻿@model IEnumerable<AppWeb.Models.AddStore>
+@using AppWeb.Models
+@{
+    ViewBag.Title = "طلبي";
+}
+
+<h2>سلة مشترياتي</h2>
+@Html.ActionLink("طلبي", "MyOrder")
+
+<table class="table">
+    <tr>
+        <th>
+            الصورة
+        </th>
+        <th>
+            رقم المنتج
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetDetails)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetAddDateTime)
+        </th>
+
+        <th align="center"> الحالة المنتج </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @{
+            ApplicationDbContext db = new ApplicationDbContext();
+            var data = from image in db.Stores
+                       where image.Id == item.StoreId
+                       select new { image1 = image.image1, image2 = image.image2 };
+            foreach (var it in data)
+            {
+                <img src="~/Upload/@it.image1" width="100" height="100" />
+
+            }
+        }
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.StoreId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProducetName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProducetDetails)
+    </td>
+
+    <td>
+
+        @{
+            object dt = DateTimeAgo.TimeAgo(item.ProducetAddDateTime);
+            ViewBag.dateTime = dt;
+        }
+        @ViewBag.dateTime
+    </td>
+
+    <td>
+        @using (Html.BeginForm("Edit", "AddStores", new { id = item.Id }, FormMethod.Post, new { @id = "for" }))
+
+        {
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="ProducetName" name="ProducetName" value="@item.ProducetName" />
+            <input type="hidden" id="ProducetDetails" name="ProducetDetails" value="@item.ProducetDetails" />
+            <input type="hidden" id="StoreId" name="StoreId" value="@item.StoreId" />
+            <input type="hidden" id="Price" name="Price" class="Total" />
+            <label>
+                إجمالي
+            </label>
+            <p id="Total"> @item.Price</p>
+
+            <input type="number" id="Quantity" width="10" name="Quantity" value="1" />
+            <button id="but" type="button" class="btn btn btn-dark">شراء </button>
+            <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+            <script type="text/javascript">
+                        $(document).ready(function () {
+
+                            $("#Quantity").bind('keyup mouseup', function () {
+                                var Price =@item.Price;
+                                var Quantity = $("#Quantity").val();
+                                if (Quantity > Price || Quantity < Price) {
+                                    $("#Quantity").val(Quantity);
+                                    var Total = Price * Quantity;
+                                    $(".Total").val(Total);
+
+                                  document.getElementById("Total").innerText = Total;
+                                };
+
+
+                            });
+
+
+
+
+
+                        });
+
+
+            </script>
+        }
+        @using (Html.BeginForm("Delete", "AddStores", new { id = item.Id }, FormMethod.Post, new { @id = "Deletes" }))
+        {
+            @Html.AntiForgeryToken()
+            <br />
+    <button id="Delete" type="button" class="btn btn btn-dark">حذف</button>
+
+        }
+    </td>
+</tr>
+    }
+
+</table>
+<div id="buy">
+    <p style="text-align:center">البيانات الشخصية </p>
+    <p>اسم :@User.Identity.FullName()</p>
+    <p>رقم الجوال:@User.Identity.NumberMobie()</p>
+    <p style="text-align:center">الموقع الحاله </p>
+    <p>المدينة: @User.Identity.City()</p>
+    <p>حي: @User.Identity.District()</p>
+    <p>شارع: @User.Identity.Street()</p>
+    <hr />
+    <a href="#"> تحديث البيانات </a>
+
+</div>
+
+<div id="Del">
+    <p>هل تريد حذف</p>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#buy").dialog({
+            title:"هل تريد شراء",
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            },
+            buttons: {
+                "شراء": function () {
+                    document.getElementById("for").submit();
+                },
+                "إلغاء": function () {
+                    $(this).dialog("close")
+                }
+            }
+
+        });
+
+        $("#but").on("click", function () {
+            $("#buy").dialog("open");
+        });
+
+        $("#Del").dialog({
+            title: "حذف",
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            },
+            buttons: {
+                "حذف": function () {
+                    document.getElementById("Deletes").submit();
+                },
+                "إلغاء": function () {
+                    $(this).dialog("close")
+                }
+            }
+
+        });
+
+        $("#Delete").on("click", function () {
+            $("#Del").dialog("open");
+        });
+    });
+      
+    
+</script>

@@ -1,0 +1,142 @@
+﻿@using Microsoft.AspNet.Identity
+@using AppWeb.Models
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+
+                @{
+                    ApplicationDbContext db = new ApplicationDbContext();
+
+                    var ID = User.Identity.GetUserId();
+                    var data = from conut in db.AddStores
+                               where conut.UserId == ID && conut.TrueuOrFalse == false
+                               select conut;
+                    ViewBag.data = data.Count();
+                }
+                <a href="/AddStores" data-tip="@ViewBag.data">
+
+
+
+                    @if (ViewBag.data == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        @ViewBag.data
+
+
+                        <img src="~/Upload/images.png" style="border-radius: 50%;" height="25" width="25" />
+
+                    }
+
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img style="border-radius: 50%;" src="~/Upload/UserImages/User.png" width="45" height="45">
+                    <strong>
+                        مرحبا بك : @User.Identity.FullName()
+                    </strong>
+                    <span class="bi bi-caret-down-square"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <div class="navbar-user">
+                            <div class="row">
+                                @{
+                                    string UserName = User.Identity.GetUserName();
+                                    if (UserName == "Admin")
+                                    {
+                                        <div class="col-lg-12">
+                                            <p class="text-right">
+                                                <i class="bi bi-person"></i>
+                                                <strong>
+                                                    @UserName
+                                                </strong>
+                                            </p>
+                                            <a href="~/Store/Index" class="btn btn-primary btn-block"> منتجاتي</a>
+                                            <a href="~/Store/Create" class="btn btn-primary btn-block"> إضافة المنتج</a>
+                                            <i class="bi bi-clipboard-check">
+                                                
+                                                <a class="btn btn-success btn-block" href="~/Store/MyOrderAddUser">
+                                                    إضافة قبول طلب لمستخدم
+                                                </a>
+                                                <a class="btn btn-success btn-block" href="~/Account/AllUser"> المستخدمين</a>
+                                            </i>
+
+
+
+                                        </div>
+
+                                    }
+                                    else
+                                    {
+                                        <div class="col-lg-12">
+                                            <p class="text-right">
+                                                <i class="bi bi-person"></i>
+                                                <strong>
+                                                    @UserName
+                                                </strong>
+                                            </p>
+                                            <a href="~/Manage/Index" class="btn btn-primary btn-block">بياناتي</a>
+                                            <i class="bi bi-clipboard-check">
+                                                <a class="btn btn-success btn-block" href="~/AddStores/MyOrder"> طلبي</a>
+                                            </i>
+
+
+
+                                        </div>
+
+
+                                    }
+                                }
+
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>
+                                        <a href="javascript:document.getElementById('logoutForm').submit()">تسجيل خروج</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    }
+}
+else
+{
+    <ul class=" nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("تسجيل جديد", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("تسجيل دخول", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

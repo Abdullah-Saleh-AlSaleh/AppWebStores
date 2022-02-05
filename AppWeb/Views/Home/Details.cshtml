@@ -1,0 +1,202 @@
+﻿@model AppWeb.Models.Store
+@using AppWeb.Models;
+@{
+    ViewBag.Title = "تفاصيل";
+}
+
+<h2>تفاصيل</h2>
+<style>
+    #gallerywrapper {
+        width: 640px;
+        height: 450px;
+        margin: 0 auto;
+        position: relative;
+        font-family: verdana, arial, sans-serif;
+    }
+
+        #gallerywrapper #gallery {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 450px;
+            width: 640px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+            #gallerywrapper #gallery div {
+                width: 640px;
+                height: 900px;
+                padding-top: 10px;
+                position: relative;
+            }
+
+                #gallerywrapper #gallery div img {
+                    clear: both;
+                    display: block;
+                    margin: 0 auto;
+                    border: 0;
+                }
+
+                #gallerywrapper #gallery div h3 {
+                    padding: 10px 0 0 0;
+                    margin: 0;
+                    font-size: 18px;
+                }
+
+                #gallerywrapper #gallery div p {
+                    padding: 5px 0;
+                    margin: 0;
+                    font-size: 12px;
+                    line-height: 18px;
+                }
+
+    #gallery .previous {
+        display: inline;
+        float: left;
+        margin-left: 80px;
+        text-decoration: none;
+    }
+
+    #gallery .next {
+        display: inline;
+        float: right;
+        margin-right: 80px;
+        text-decoration: none;
+    }
+</style>
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>
+
+                        @Html.DisplayNameFor(model => model.ProducetName)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.ProducetName)
+                    </p>
+
+
+
+
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        @Html.DisplayNameFor(model => model.ProducetDetails)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.ProducetDetails)
+                    </p>
+
+
+
+                </div>
+                <div class="col-md-2">
+                    <p>
+
+                        @Html.DisplayNameFor(model => model.Price)
+                    </p>
+                    <p>
+                        @Html.DisplayFor(model => model.Price)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="gallerywrapper">
+                <div id="gallery">
+                    <div id="pic1">
+                        <img src="~/Upload/@Html.DisplayFor(model => model.image1)" height="350" width="500" alt="Image 1">
+
+                        <a class="previous btn btn btn-danger" href="#pic5">السابق &gt;</a>
+                        <a class="next btn btn btn-danger" href="#pic2">&lt; التالي</a>
+
+
+
+                    </div>
+                    <div id="pic2">
+                        <img src="~/Upload/@Html.DisplayFor(model => model.image2)" height="350" width="500" alt="Image 2">
+
+                        <a class="previous btn btn btn-danger" href="#pic1">السابق &gt;</a>
+                        <a class="next btn btn btn-danger" href="#pic3">&lt; التالي</a>
+
+                    </div>
+                    @{
+                        var Image = Html.HiddenFor(model => model.image3);
+                        if (Image != null)
+                        {
+
+                        }
+                        else
+                        {
+                            <div id="pic3">
+                                <img src="~/Upload/@Html.DisplayFor(model => model.image3)" height="350" width="500" alt="Image 3">
+
+
+                                <a class="previous btn btn btn-danger" href="#pic2">السابق &gt;</a>
+                                <a class="next btn btn btn-danger" href="#pic4">&lt; التالي</a>
+                            </div>
+                            <div id="pic4">
+                                <img src="~/Upload/@Html.DisplayFor(model => model.image4)" height="350" width="500" alt="Image 4">
+
+                                <a class="previous btn btn btn-danger" href="#pic3">السابق &gt;</a>
+                                <a class="next btn btn btn-danger" href="#pic5">&lt; التالي</a>
+                            </div>
+                            <div id="pic5">
+                                <img src="~/Upload/@Html.DisplayFor(model => model.image5)" height="350" width="500" alt="Image 5">
+
+
+                                <a class="previous btn btn btn-danger" href="#pic4">السابق &gt;</a>
+                                <a class="next btn btn btn-danger" href="#pic1">&lt; التالي</a>
+                            </div>
+                        }
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div id="Comment">
+    @{
+        ApplicationDbContext db = new ApplicationDbContext();
+        var Url = HttpContext.Current.Request.Url.AbsoluteUri.Substring(37);
+        ViewBag.Url = Url;
+        var Comments = from com in db.Comments
+                       where com.StoreId == Url
+                       select com;
+        foreach (var item in Comments)
+        {
+            <div>
+                <div>
+                    <p>@item.Comme</p>
+                </div>
+                <div>
+                    <p>@item.FullName</p>
+                </div>
+                @{
+                    var DateTime = DateTimeAgo.TimeAgo(item.DateTime);
+
+                }
+                <p>@DateTime</p>
+                <div>
+                    <p>@item.Text</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+@ViewBag.Url
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("")
+    })
+
+</script>

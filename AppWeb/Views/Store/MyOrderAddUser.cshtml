@@ -1,0 +1,161 @@
+﻿@model IEnumerable<AppWeb.Models.AddStore>
+@using AppWeb.Models;
+@{
+    ViewBag.Title = " إضافة قبول طلب لمستخدم";
+}
+
+<h2>إضافة قبول طلب لمستخدم</h2>
+
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProducetAddDateTime)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+            ,
+            @Html.DisplayNameFor(model => model.District)
+            ,
+            @Html.DisplayNameFor(model => model.Street)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StoreTrueuOrFalse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TextToHome)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+
+
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ProducetName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProducetDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+
+            <td>
+
+                @{
+                    var ProducetAddDateTime = DateTimeAgo.TimeAgo(item.ProducetAddDateTime);
+                }
+                @ProducetAddDateTime
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+                ,
+                @Html.DisplayFor(modelItem => item.District)
+                ,
+                @Html.DisplayFor(modelItem => item.Street)
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreTrueuOrFalse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TextToHome)
+            </td>
+
+            <td>
+
+                @using (Html.BeginForm("OkOrder", "Store", new { id = item.Id }, FormMethod.Post, new { @id = "for" }))
+                {
+
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <h4></h4>
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input id="Id" name="Id" type="hidden" value="@item.Id" />
+                        <input id="StoreId" name="StoreId" type="hidden" value="@item.StoreId" />
+                        <input id="ProducetName" name="ProducetName" type="hidden" value="@item.ProducetName" />
+                        <input id="ProducetDetails" name="ProducetDetails" type="hidden" value="@item.ProducetDetails" />
+                        <input id="Price" name="Price" type="hidden" value="@item.Price" />
+                        <input id="ProducetAddDateTime" name="ProducetAddDateTime" type="hidden" value="@item.ProducetAddDateTime" />
+                        <input id="City" name="City" type="hidden" value="@item.City" />
+                        <input id="District" name="District" type="hidden" value="@item.District" />
+                        <input id="StoreTrueuOrFalse" name="StoreTrueuOrFalse" type="hidden" value="@item.StoreTrueuOrFalse" />
+                        <input id="TrueuOrFalse" name="TrueuOrFalse" type="hidden" value="@item.TrueuOrFalse" />
+                        <input id="Quantity" name="Quantity" type="hidden" value="@item.Quantity" />
+                        <input id="UserId" name="UserId" type="hidden" value="@item.UserId" />
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">
+                                الحالة الطلب
+                            </label>
+                            <div class="col-md-10">
+                                <input id="TextToHome" name="TextToHome" value="@item.TextToHome" class="form-control" />
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit"  onclick="myfunction();" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+
+<script type="text/javascript">
+    function myfunction() {
+        var doc = new jsPDF();
+
+        doc.text(20, 20, 'Hello world!');
+        doc.text(20, 30, 'This is client-side Javascript to generate a PDF.');
+
+        // Add new page
+        doc.addPage();
+        doc.text(20, 20, 'Visit CodexWorld.com');
+
+        // Save the PDF
+        doc.save('document.pdf');
+    }
+
+</script>
